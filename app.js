@@ -2,16 +2,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const cors = require('cors');
+app.use(cors());
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // allow all origins to access the resource
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
 
 app.use(logger('dev'));
 app.use(express.json());
